@@ -4,7 +4,8 @@ import (
 	"database/sql"
 	"fmt"
 	"os"
-
+	"github.com/joho/godotenv"
+	"log"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/gofiber/fiber/v2"
 )
@@ -19,8 +20,9 @@ func CreateFiberApp() *fiber.App {
 	return app
 }
 
-func ConnectMySQL() *sql.DB {
-	db, err := sql.Open("mysql", "b6210545734:puvana.s@ku.th@tcp(iot.cpe.ku.ac.th:3306)/b6210545734")
+func ConnectMySQL(uri string) *sql.DB {
+	fmt.Println(uri)
+	db, err := sql.Open("mysql", uri)
 	
 	if err != nil {
 		fmt.Println(err)
@@ -32,7 +34,15 @@ func ConnectMySQL() *sql.DB {
 
 func main() {
 	fiberApp := CreateFiberApp()
-	db := ConnectMySQL()
+	
+	err := godotenv.Load()
+    if err != nil {
+        log.Fatal("Error loading .env file")
+    }
+    
+    mysql_uri := os.Getenv("MYSQL_URI")
+	db := ConnectMySQL(mysql_uri)
+	
 	
 	fiberApp.Get("/test", func(c *fiber.Ctx) error {
 		fmt.Println("someone using /test")
