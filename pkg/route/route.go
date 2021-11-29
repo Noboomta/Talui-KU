@@ -6,5 +6,5 @@ import (
 )
 
 func SetupRouter(app *fiber.App) {
-	app.Get("/all_Talui", handlers.GetAllCompleteTalui)
+	app.Get("/all_taluis", handlers.GetAllCompleteTalui)
 }
