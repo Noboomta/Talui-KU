@@ -26,23 +26,6 @@ func main() {
 	// middleware.RegisDb(fiberApp, db)
 	route.SetupRouter(fiberApp)
 	
-	//fiberApp.Get("/test", func(c *fiber.Ctx) error {
-	//	fmt.Println("someone using /test")
-	//	var result = "hello"
-	//	return c.JSON(result)
-	//})
-	//
-	//fiberApp.Post("/insert", func(c *fiber.Ctx) error {
-	//	_, err := db.Query("INSERT INTO talui_using (enter, down) VALUES ( 'staA', 'staB' )")
-	//
-	//	if err != nil {
-	//		fmt.Println(err)
-	//	}
-	//	// defer insert.Close()
-	//
-	//	return c.JSON("done")
-	//})
-	
 	fiberApp.Get("/allTaluis", func(c *fiber.Ctx) error {
 		taluis, err := dbmodels.GetAllTalui()
 		if err != nil {
