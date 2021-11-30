@@ -14,10 +14,10 @@ import (
 func main() {
 	fiberApp := app.CreateFiberApp()
 	
-	err := godotenv.Load()
-    if err != nil {
-        log.Fatal("Error loading .env file")
-    }
+	// err := godotenv.Load()
+    // if err != nil {
+    //     log.Fatal("Error loading .env file")
+    // }
     
     mysqlUri := os.Getenv("MYSQL_URI")
 	database.ConnectMySQL(mysqlUri)
