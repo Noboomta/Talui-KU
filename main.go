@@ -35,5 +35,6 @@ func main() {
 	// 	return c.JSON(taluis)
 	// })
 	
-	fiberApp.Listen(":3000")
+	port := os.Getenv("PORT")
+	fiberApp.Listen(port)
 }
