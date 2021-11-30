@@ -20,7 +20,7 @@ type TaluiComplete struct {
 func GetAllTaluiComplete() ([]TaluiComplete, error) {
 	fmt.Println("get all TaluiComplete")
 	db := database.DB
-	result, err := db.Query("SELECT * FROM `TaluiComplete`")
+	result, err := db.Query("SELECT * FROM `taluiComplete`")
 	if err != nil {
 		fmt.Println(err)
 		return nil, err

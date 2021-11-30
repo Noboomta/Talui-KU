@@ -24,17 +24,6 @@ func main() {
 	// middleware.RegisDb(fiberApp, db)
 	route.SetupRouter(fiberApp)
 	
-	// fiberApp.Get("/allTaluis", func(c *fiber.Ctx) error {
-	// 	taluis, err := dbmodels.GetAllTalui()
-	// 	if err != nil {
-	// 		return c.JSON(fiber.Map{
-	// 			"msg": "error",
-	// 		})
-	// 	}
-		
-	// 	return c.JSON(taluis)
-	// })
-	
 	port := os.Getenv("PORT")
 	fiberApp.Listen(":" + port)
 }
