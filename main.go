@@ -36,5 +36,5 @@ func main() {
 	// })
 	
 	port := os.Getenv("PORT")
-	fiberApp.Listen(port)
+	fiberApp.Listen(":" + port)
 }
