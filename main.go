@@ -1,14 +1,14 @@
 package main
 
 import (
-	"log"
+	_ "log"
 	"os"
 	"talui/pkg/app"
 	"talui/pkg/database"
 	"talui/pkg/route"
 
 	_ "github.com/go-sql-driver/mysql"
-	"github.com/joho/godotenv"
+	_ "github.com/joho/godotenv"
 )
 
 func main() {
