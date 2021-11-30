@@ -6,5 +6,9 @@ import (
 )
 
 func SetupRouter(app *fiber.App) {
-	app.Get("/all_taluis", handlers.GetAllCompleteTalui)
+	app.Get("/on/getAllTalui", handlers.GetAllTaluiOnHandler)
+	app.Post("/on/insertTalui", handlers.InsertTaluiOnHandler)
+	app.Get("/complete/GetAllTalui", handlers.GetAllTaluiCompleteHandler)
+	app.Post("/complete/insertTalui", handlers.InsertTaluiCompleteHandler)
+	app.Post("/arriveAt", handlers.ArriveAtHandler)
 }
