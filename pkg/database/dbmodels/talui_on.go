@@ -17,7 +17,6 @@ type TaluiOn struct {
 }
 
 func GetAllTaluiOn() ([]TaluiOn, error) {
-	fmt.Println("get all TaluiOn")
 	db := database.DB
 	result, err := db.Query("SELECT * FROM `talui_on`")
 	if err != nil {
@@ -37,7 +36,6 @@ func GetAllTaluiOn() ([]TaluiOn, error) {
 }
 
 func InsertTaluiOn(entry string, dest string, line string) (error) {
-	fmt.Println("Inserting TaluiOn")
 	db := database.DB
 	
 	_ = "INSERT INTO talui_on (entry, dest, line) VALUES ( '" + entry + "', '" + dest + "', '" + line + "' )"
@@ -51,12 +49,10 @@ func InsertTaluiOn(entry string, dest string, line string) (error) {
 	}
 	
 	defer insert.Close()
-	
 	return nil
 }
 
 func FindManyTaluiOn(dest string, line string) ([]TaluiOn, error) {
-	fmt.Println("Find many TaluiOn")
 	db := database.DB
 	
 	_ = "SELECT * FROM `talui_on` WHERE `dest` LIKE 'B' AND `line` LIKE 'green'"
@@ -75,12 +71,10 @@ func FindManyTaluiOn(dest string, line string) ([]TaluiOn, error) {
 		result.Scan(&data.Id, &data.Entry, &data.Entry_ts, &data.Dest, &data.Line)
 		dataArray = append(dataArray, data)
 	}
-	
 	return dataArray, nil
 }
 
 func RemoveManyTaluiOn(dest string, line string) ([]TaluiOn, error) {
-	fmt.Println("Remove many TaluiOn")
 	db := database.DB
 	
 	_ = "SELECT * FROM `talui_on` WHERE `dest` LIKE 'B' AND `line` LIKE 'green'"

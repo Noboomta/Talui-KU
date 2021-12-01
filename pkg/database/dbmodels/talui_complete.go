@@ -18,7 +18,6 @@ type TaluiComplete struct {
 }
 
 func GetAllTaluiComplete() ([]TaluiComplete, error) {
-	fmt.Println("get all TaluiComplete")
 	db := database.DB
 	result, err := db.Query("SELECT * FROM `talui_complete`")
 	if err != nil {
@@ -39,10 +38,8 @@ func GetAllTaluiComplete() ([]TaluiComplete, error) {
 }
 
 func InsertTaluiComplete(entry string, entry_ts string, dest string, line string) (error){
-	fmt.Println("Inserting TaluiComplete")
 	db := database.DB
 	
-	_ = "INSERT INTO talui_complete (entry, entry_ts, dest, line) VALUES ( '" + entry + "', '" + entry_ts + "', '" + dest + "', '" + line + "' )"
 	query := fmt.Sprintf("INSERT INTO talui_complete (entry, entry_ts, dest, line) VALUES ( '%s', '%s', '%s', '%s' )", entry, entry_ts, dest, line)
 	insert, err := db.Query(query)
 	
@@ -53,7 +50,6 @@ func InsertTaluiComplete(entry string, entry_ts string, dest string, line string
 	}
 	
 	defer insert.Close()
-	
 	return nil
 }
 
