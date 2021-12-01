@@ -11,6 +11,9 @@ func SetupRouter(app *fiber.App) {
 	app.Get("/complete/GetAllTalui", handlers.GetAllTaluiCompleteHandler)
 	app.Post("/complete/insertTalui", handlers.InsertTaluiCompleteHandler)
 	app.Post("/arriveAt", handlers.ArriveAtHandler)
-	app.Get("/station/using", handlers.StationHandler)
+	app.Get("/station/using/entry", handlers.StationUsingEntryHandler)
+	app.Get("/station/using/dest", handlers.StationUsingDestHandler)
+	app.Get("/station/find/entry", handlers.FindStationEntryHandler)
+	app.Get("/station/find/dest", handlers.FindStationDestHandler)
 	app.Get("/", handlers.GetMainPage)
 }

@@ -27,7 +27,14 @@ func GetMainPage(c *fiber.Ctx) error {
 	"<br>" +
 	"<h3>POST /arriveAt</h3>" +
 	"<br>" +
-	"<h3>GET /station/using</h3>"
+	"<h3>GET /station/using/entry</h3>" +
+	"<br>" +
+	"<h3>GET /station/using/dest</h3>" +
+	"<br>" +
+	"<h3>GET /station/find/entry</h3>" +
+	"<br>" +
+	"<h3>GET /station/find/dest</h3>" +
+	"<br>"
 	
 	c.Set(fiber.HeaderContentType, fiber.MIMETextHTML)
     return c.SendString(myHtml)
