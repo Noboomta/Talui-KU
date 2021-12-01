@@ -110,17 +110,19 @@ func GetStationUsingDest() ([]StationCount, error) {
 func FindStationUsingEntryByStationAndTime(station string, time string) ([]StationCount, error) {
 	db := database.DB
 	
-	query := "SELECT total.station as station, total.value, total.time" +
-	"FROM (" +
-	"SELECT entry as station, count(entry) as value, TIMESTAMP(DATE(entry_ts), " +
-	"CONCAT(floor(hour(entry_ts)/2)*2, ':00:00')) as time" +
-	"FROM talui_complete GROUP BY station, time" +
-	") as total" +
-	"WHERE" +
-	fmt.Sprintf("total.station = '%s'", station) +
-	fmt.Sprintf("AND total.time = '%s'", time)
+	// query := "SELECT total.station as station, total.value, total.time" +
+	// "FROM (" +
+	// "SELECT entry as station, count(entry) as value, TIMESTAMP(DATE(entry_ts), " +
+	// "CONCAT(floor(hour(entry_ts)/2)*2, ':00:00')) as time" +
+	// "FROM talui_complete GROUP BY station, time" +
+	// ") as total" +
+	// "WHERE" +
+	// fmt.Sprintf("total.station = '%s'", station) +
+	// fmt.Sprintf("AND total.time = '%s'", time)
 	
-	result, err := db.Query(query);
+	q2 := fmt.Sprintf("SELECT total.station as station, total.value, total.time FROM ( SELECT entry as station, count(entry) as value, TIMESTAMP(DATE(entry_ts), CONCAT(floor(hour(entry_ts)/2)*2, ':00:00')) as time FROM talui_complete GROUP BY station, time ) as total WHERE total.station = '%s' AND total.time = '%s'", station, time)
+	
+	result, err := db.Query(q2);
 	if err != nil {
 		fmt.Println(err)
 		return nil, err
@@ -141,17 +143,21 @@ func FindStationUsingEntryByStationAndTime(station string, time string) ([]Stati
 func FindStationUsingDestByStationAndTime(station string, time string) ([]StationCount, error) {
 	db := database.DB
 	
-	query := "SELECT total.station as station, total.value, total.time" +
-	"FROM (" +
-	"SELECT dest as station, count(dest) as value, TIMESTAMP(DATE(dest_ts), " +
-	"CONCAT(floor(hour(dest_ts)/2)*2, ':00:00')) as time" +
-	"FROM talui_complete GROUP BY station, time" +
-	") as total" +
-	"WHERE" +
-	fmt.Sprintf("total.station = '%s'", station) +
-	fmt.Sprintf("AND total.time = '%s'", time)
+	// query := "SELECT total.station as station, total.value, total.time" +
+	// "FROM (" +
+	// "SELECT dest as station, count(dest) as value, TIMESTAMP(DATE(dest_ts), " +
+	// "CONCAT(floor(hour(dest_ts)/2)*2, ':00:00')) as time" +
+	// "FROM talui_complete GROUP BY station, time" +
+	// ") as total" +
+	// "WHERE" +
+	// fmt.Sprintf("total.station = '%s'", station) +
+	// fmt.Sprintf("AND total.time = '%s'", time)
 	
-	result, err := db.Query(query);
+	q2 := fmt.Sprintf("SELECT total.station as station, total.value, total.time FROM ( SELECT dest as station, count(dest) as value, TIMESTAMP(DATE(dest_ts), CONCAT(floor(hour(dest_ts)/2)*2, ':00:00')) as time FROM talui_complete GROUP BY station, time ) as total WHERE total.station = '%s' AND total.time = '%s'", station, time)
+	
+	fmt.Println(q2)
+	
+	result, err := db.Query(q2);
 	if err != nil {
 		fmt.Println(err)
 		return nil, err
