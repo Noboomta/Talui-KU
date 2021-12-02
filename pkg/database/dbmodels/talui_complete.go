@@ -63,7 +63,7 @@ func GetStationUsingEntry() ([]StationCount, error) {
 	db := database.DB
 	
 	query := "SELECT entry as station, count(entry) as value, TIMESTAMP(DATE(entry_ts)" +
-	" , CONCAT(floor(hour(entry_ts)/2)*2, ':00:00')) as time" + 
+	" , CONCAT(floor(hour(entry_ts)), ':00:00')) as time" + 
 	" FROM talui_complete GROUP BY station, time"
 	result, err := db.Query(query);
 	if err != nil {
@@ -87,7 +87,7 @@ func GetStationUsingDest() ([]StationCount, error) {
 	db := database.DB
 	
 	query := "SELECT dest as station, count(dest) as value, TIMESTAMP(DATE(dest_ts)" +
-	" , CONCAT(floor(hour(dest_ts)/2)*2, ':00:00')) as time" + 
+	" , CONCAT(floor(hour(dest_ts)), ':00:00')) as time" + 
 	" FROM talui_complete GROUP BY station, time"
 	result, err := db.Query(query);
 	if err != nil {
@@ -120,7 +120,7 @@ func FindStationUsingEntryByStationAndTime(station string, time string) ([]Stati
 	// fmt.Sprintf("total.station = '%s'", station) +
 	// fmt.Sprintf("AND total.time = '%s'", time)
 	
-	q2 := fmt.Sprintf("SELECT total.station as station, total.value, total.time FROM ( SELECT entry as station, count(entry) as value, TIMESTAMP(DATE(entry_ts), CONCAT(floor(hour(entry_ts)/2)*2, ':00:00')) as time FROM talui_complete GROUP BY station, time ) as total WHERE total.station = '%s' AND total.time = '%s'", station, time)
+	q2 := fmt.Sprintf("SELECT total.station as station, total.value, total.time FROM ( SELECT entry as station, count(entry) as value, TIMESTAMP(DATE(entry_ts), CONCAT(floor(hour(entry_ts)), ':00:00')) as time FROM talui_complete GROUP BY station, time ) as total WHERE total.station = '%s' AND total.time = '%s'", station, time)
 	
 	result, err := db.Query(q2);
 	if err != nil {
@@ -153,7 +153,7 @@ func FindStationUsingDestByStationAndTime(station string, time string) ([]Statio
 	// fmt.Sprintf("total.station = '%s'", station) +
 	// fmt.Sprintf("AND total.time = '%s'", time)
 	
-	q2 := fmt.Sprintf("SELECT total.station as station, total.value, total.time FROM ( SELECT dest as station, count(dest) as value, TIMESTAMP(DATE(dest_ts), CONCAT(floor(hour(dest_ts)/2)*2, ':00:00')) as time FROM talui_complete GROUP BY station, time ) as total WHERE total.station = '%s' AND total.time = '%s'", station, time)
+	q2 := fmt.Sprintf("SELECT total.station as station, total.value, total.time FROM ( SELECT dest as station, count(dest) as value, TIMESTAMP(DATE(dest_ts), CONCAT(floor(hour(dest_ts)), ':00:00')) as time FROM talui_complete GROUP BY station, time ) as total WHERE total.station = '%s' AND total.time = '%s'", station, time)
 	
 	fmt.Println(q2)
 	
