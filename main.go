@@ -24,8 +24,9 @@ func main() {
 	fiberApp.Use(cors.New())
 	// Or extend your config for customization
 	fiberApp.Use(cors.New(cors.Config{
-	    AllowOrigins: "https://talui-ku-client.vercel.app/",
-	    AllowHeaders:  "Origin, Content-Type, Accept",
+	    AllowOrigins:     "*",
+	    AllowMethods:     "GET,POST,HEAD,PUT,DELETE,PATCH",
+	    AllowHeaders:     "",
 	}))
     
     mysqlUri := os.Getenv("MYSQL_URI")
