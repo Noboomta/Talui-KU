@@ -11,6 +11,8 @@ import (
 
 	_ "github.com/go-sql-driver/mysql"
 	_ "github.com/joho/godotenv"
+	
+	"github.com/arsmn/fiber-swagger/v2"
 )
 
 func main() {
@@ -27,6 +29,11 @@ func main() {
 	    AllowOrigins:     "*",
 	    AllowMethods:     "GET,POST,HEAD,PUT,DELETE,PATCH",
 	    AllowHeaders:     "",
+	}))
+	
+	fiberApp.Get("/swagger/*", swagger.New(swagger.Config{ // custom
+		URL:         "/swagger/doc.json",
+		DeepLinking: false,
 	}))
     
     mysqlUri := os.Getenv("MYSQL_URI")
