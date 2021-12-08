@@ -20,9 +20,7 @@ func main() {
     // if err != nil {
     //     log.Fatal("Error loading .env file")
     // }
-    // Default config
 	fiberApp.Use(cors.New())
-	// Or extend your config for customization
 	fiberApp.Use(cors.New(cors.Config{
 	    AllowOrigins:     "*",
 	    AllowMethods:     "GET,POST,HEAD,PUT,DELETE,PATCH",
@@ -34,6 +32,7 @@ func main() {
 	// middleware.RegisDb(fiberApp, db)
 	route.SetupRouter(fiberApp)
 	
+	// port 
 	port := os.Getenv("PORT")
 	fiberApp.Listen(":" + port)
 }

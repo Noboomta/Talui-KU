@@ -8,6 +8,7 @@ import (
 )
 
 func StationUsingEntryHandler(c *fiber.Ctx) error {
+	fmt.Println("Bus arrive")
 	fmt.Println("/station/using/entry")
 	
 	stationUsingData, err := dbmodels.GetStationUsingEntry()
