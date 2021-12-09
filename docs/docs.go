@@ -13,13 +13,9 @@ import (
 
 var doc = `{
     "basePath": "/",
-    "swagger": "2.0",
-    "securityDefinitions": {},
-    "host": "talui-ku-server.herokuapp.com",
     "consumes": [
       "application/json"
     ],
-    "definitions": {},
     "info": {
       "license": {
         "name": "ISC"
@@ -28,7 +24,7 @@ var doc = `{
       "version": "0.1.0"
     },
     "paths": {
-      "/complete/getAllTalui":{
+      "/complete/getAllTalui": {
         "get": {
           "operationId": "completeAlle",
           "produces": [
@@ -38,11 +34,14 @@ var doc = `{
             "200": {
               "description": "Ok",
               "schema": {
-                "type": "string"
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/taluicomplete"
+                }
               }
             }
           },
-          "description": ""
+          "description": "get array of TaluiComplete"
         }
       },
       "/on/getAllTalui": {
@@ -55,151 +54,154 @@ var doc = `{
             "200": {
               "description": "Ok",
               "schema": {
-                "type": "string"
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/taluion"
+                }
               }
             }
           },
-          "description": ""
+          "description": "get array of TaluiOn"
         }
       },
-      "/complete/insertTalui":{
+      "/complete/insertTalui": {
         "post": {
           "operationId": "Insert Complete",
           "produces": [
             "application/json"
           ],
           "parameters": [
-          {
-            "name": "entry",
-            "in": "query",
-            "description": "entry",
-            "required": false,
-            "type": "string",
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "dest",
-            "in": "query",
-            "description": "dest",
-            "required": false,
-            "type": "string",
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "line",
-            "in": "query",
-            "description": "line",
-            "required": false,
-            "type": "string",
-            "items": {
-              "type": "string"
-            }
-          }
-        ],
-          "responses": {
-            "200": {
-              "description": "Ok",
-              "schema": {
+            {
+              "name": "entry",
+              "in": "query",
+              "description": "entry",
+              "required": true,
+              "type": "string",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "dest",
+              "in": "query",
+              "description": "dest",
+              "required": true,
+              "type": "string",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "line",
+              "in": "query",
+              "description": "line",
+              "required": true,
+              "type": "string",
+              "items": {
                 "type": "string"
               }
             }
+          ],
+          "responses": {
+            "200": {
+              "description": "Ok"
+            },
+            "400": {
+              "description": "Error"
+            }
           },
-          "description": ""
+          "description": "Insert TaluiComplete into database"
         }
       },
-      "/on/insertTalui":{
+      "/on/insertTalui": {
         "post": {
           "operationId": "InsertOn",
           "produces": [
             "application/json"
           ],
           "parameters": [
-          {
-            "name": "entry",
-            "in": "query",
-            "description": "entry",
-            "required": false,
-            "type": "string",
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "dest",
-            "in": "query",
-            "description": "dest",
-            "required": false,
-            "type": "string",
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "line",
-            "in": "query",
-            "description": "line",
-            "required": false,
-            "type": "string",
-            "items": {
-              "type": "string"
-            }
-          }
-        ],
-          "responses": {
-            "200": {
-              "description": "Ok",
-              "schema": {
+            {
+              "name": "entry",
+              "in": "query",
+              "description": "entry",
+              "required": true,
+              "type": "string",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "dest",
+              "in": "query",
+              "description": "dest",
+              "required": true,
+              "type": "string",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "line",
+              "in": "query",
+              "description": "line",
+              "required": true,
+              "type": "string",
+              "items": {
                 "type": "string"
               }
             }
+          ],
+          "responses": {
+            "200": {
+              "description": "Ok"
+            },
+            "400": {
+              "description": "Error"
+            }
           },
-          "description": ""
+          "description": "Insert TaluiOn into database"
         }
       },
-      "/arriveAt":{
+      "/arriveAt": {
         "post": {
           "operationId": "arr",
           "produces": [
             "application/json"
           ],
           "parameters": [
-          {
-            "name": "dest",
-            "in": "query",
-            "description": "dest",
-            "required": false,
-            "type": "string",
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "line",
-            "in": "query",
-            "description": "line",
-            "required": false,
-            "type": "string",
-            "items": {
-              "type": "string"
-            }
-          }
-        ],
-          "responses": {
-            "200": {
-              "description": "Ok",
-              "schema": {
+            {
+              "name": "dest",
+              "in": "query",
+              "description": "dest",
+              "required": false,
+              "type": "string",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "line",
+              "in": "query",
+              "description": "line",
+              "required": false,
+              "type": "string",
+              "items": {
                 "type": "string"
               }
             }
+          ],
+          "responses": {
+            "200": {
+              "description": "Ok"
+            },
+            "400": {
+              "description": "Error"
+            }
           },
-          "description": ""
+          "description": "arrive at for talui when arrive at station"
         }
       },
-      "/station/using/entry":{
+      "/station/using/entry": {
         "get": {
           "operationId": "getE",
           "produces": [
@@ -209,14 +211,17 @@ var doc = `{
             "200": {
               "description": "Ok",
               "schema": {
-                "type": "string"
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/StationEntryUsing"
+                }
               }
             }
           },
-          "description": ""
+          "description": "get array of sum of station using (entry) separate by hour"
         }
       },
-      "/station/using/dest":{
+      "/station/using/dest": {
         "get": {
           "operationId": "getD",
           "produces": [
@@ -226,52 +231,192 @@ var doc = `{
             "200": {
               "description": "Ok",
               "schema": {
-                "type": "string"
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/StationDestUsing"
+                }
               }
             }
           },
-          "description": ""
+          "description": "get array of sum of station using (dest) separate by hour"
         }
       },
-      "/station/find/entry":{
+      "/station/find/entry": {
         "get": {
           "operationId": "getUE",
           "produces": [
             "application/json"
           ],
-          "responses": {
-            "200": {
-              "description": "Ok",
-              "schema": {
+          "parameters": [
+            {
+              "name": "station",
+              "in": "query",
+              "description": "station",
+              "required": true,
+              "type": "string",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "time",
+              "in": "query",
+              "description": "time",
+              "required": true,
+              "type": "string",
+              "items": {
                 "type": "string"
               }
             }
-          },
-          "description": ""
-        }
-      },
-      "/station/find/dest":{
-        "get": {
-          "operationId": "getUD",
-          "produces": [
-            "application/json"
           ],
           "responses": {
             "200": {
               "description": "Ok",
               "schema": {
-                "type": "string"
+                "$ref": "#/definitions/StationEntryUsing"
               }
             }
           },
-          "description": ""
+          "description": "find one of station using (entry) separate by hour"
+        }
+      },
+      "/station/find/dest": {
+        "get": {
+          "operationId": "getUD",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "station",
+              "in": "query",
+              "description": "station",
+              "required": true,
+              "type": "string",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "time",
+              "in": "query",
+              "description": "time",
+              "required": true,
+              "type": "string",
+              "items": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Ok",
+              "schema": {
+                "$ref": "#/definitions/StationDestUsing"
+              }
+            }
+          },
+          "description": "find one of station using (dest) separate by hour"
         }
       }
     },
     "produces": [
       "application/json"
-    ]
-}`
+    ],
+    "swagger": "2.0",
+    "securityDefinitions": {},
+    "host": "talui-ku-server.herokuapp.com",
+    "definitions": {
+      "taluicomplete": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "description": "id of talui",
+            "type": "integer"
+          },
+          "entry": {
+            "description": "entry station.",
+            "type": "string"
+          },
+          "entry_ts": {
+            "description": "entry time.",
+            "type": "string"
+          },
+          "dest": {
+            "description": "destination station.",
+            "type": "string"
+          },
+          "dest_ts": {
+            "description": "destination time.",
+            "type": "string"
+          },
+          "line": {
+            "description": "line of talui.",
+            "type": "string"
+          }
+        }
+      },
+      "taluion": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "description": "id of talui",
+            "type": "integer"
+          },
+          "entry": {
+            "description": "entry station.",
+            "type": "string"
+          },
+          "entry_ts": {
+            "description": "entry time.",
+            "type": "string"
+          },
+          "dest": {
+            "description": "destination station.",
+            "type": "string"
+          },
+          "line": {
+            "description": "line of talui.",
+            "type": "string"
+          }
+        }
+      },
+      "StationEntryUsing": {
+        "type": "object",
+        "properties": {
+          "station": {
+            "description": "station name.",
+            "type": "string"
+          },
+          "value": {
+            "description": "number of using",
+            "type": "integer"
+          },
+          "time": {
+            "description": "entry time.",
+            "type": "string"
+          }
+        }
+      },
+      "StationDestUsing": {
+        "type": "object",
+        "properties": {
+          "station": {
+            "description": "station name.",
+            "type": "string"
+          },
+          "value": {
+            "description": "number of using",
+            "type": "integer"
+          },
+          "time": {
+            "description": "dest time.",
+            "type": "string"
+          }
+        }
+      }
+    }
+  }`
 
 type swaggerInfo struct {
 	Version     string
