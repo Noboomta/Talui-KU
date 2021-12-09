@@ -434,7 +434,7 @@ var SwaggerInfo = swaggerInfo{
 	BasePath:    "/",
 	Schemes:     []string{},
 	Title:       "Talui Api docs",
-	Description: "This is a sample swagger for Fiber",
+	Description: "This is Talui api-docs",
 }
 
 type s struct{}

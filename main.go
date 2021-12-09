@@ -19,16 +19,6 @@ import (
 	_ "talui/docs"
 )
 
-// @title Talui Api docs
-// @version 1.0
-// @description This is a sample swagger for Fiber
-// @termsOfService http://swagger.io/terms/
-// @contact.name puvana swatavnith
-// @contact.email puvana.s@ku.th
-// @license.name Apache 2.0
-// @license.url http://www.apache.org/licenses/LICENSE-2.0.html
-// @host talui-ku-server.herokuapp.com/
-// @BasePath /
 func main() {
 	fiberApp := app.CreateFiberApp()
 	
@@ -44,11 +34,6 @@ func main() {
 	}))
 	
 	fiberApp.Get("/swagger/*", swagger.Handler) // default
-	
-	fiberApp.Get("/swagger/*", swagger.New(swagger.Config{ // custom
-		URL:         "/swagger/doc.json",
-		DeepLinking: false,
-	}))
     
     mysqlUri := os.Getenv("MYSQL_URI")
 	database.ConnectMySQL(mysqlUri)
