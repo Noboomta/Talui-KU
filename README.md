@@ -1,6 +1,6 @@
 # TaluiKU
 
-DAQ 2021 SKE17
+DAQ 2021 SKE17 DEC
 
 ## Docs
 
