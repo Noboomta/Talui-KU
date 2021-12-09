@@ -1,30 +1,173 @@
 basePath: /
-host: talui-ku-server.herokuapp.com/
+consumes:
+  - application/json
+definitions: {}
 info:
-  contact:
-    email: puvana.s@ku.th
-    name: puvana swatavnith
-  description: This is a sample swagger for Fiber
   license:
-    name: Apache 2.0
-    url: http://www.apache.org/licenses/LICENSE-2.0.html
-  termsOfService: http://swagger.io/terms/
-  title: Talui Api docs
-  version: "1.0"
+    name: ISC
+  title: TaluiKU Api docs
+  version: 0.1.0
 paths:
-  /complete/GetAllTalui:
+  /complete/getAllTalui:
     get:
-      consumes:
-      - application/json
-      description: get all TaluiComplete
+      operationId: completeAlle
       produces:
-      - application/json
+        - application/json
       responses:
-        "200":
-          description: OK
+        '200':
+          description: Ok
           schema:
             type: string
-      summary: Show show all TaluiComplete
-      tags:
-      - TaluiComplete
-swagger: "2.0"
+      description: ''
+  /on/getAllTalui:
+    get:
+      operationId: onAll
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Ok
+          schema:
+            type: string
+      description: ''
+  /complete/insertTalui:
+    post:
+      operationId: Insert Complete
+      produces:
+        - application/json
+      parameters:
+        - name: entry
+          in: query
+          description: entry
+          required: false
+          type: string
+          items:
+            type: string
+        - name: dest
+          in: query
+          description: dest
+          required: false
+          type: string
+          items:
+            type: string
+        - name: line
+          in: query
+          description: line
+          required: false
+          type: string
+          items:
+            type: string
+      responses:
+        '200':
+          description: Ok
+          schema:
+            type: string
+      description: ''
+  /on/insertTalui:
+    post:
+      operationId: InsertOn
+      produces:
+        - application/json
+      parameters:
+        - name: entry
+          in: query
+          description: entry
+          required: false
+          type: string
+          items:
+            type: string
+        - name: dest
+          in: query
+          description: dest
+          required: false
+          type: string
+          items:
+            type: string
+        - name: line
+          in: query
+          description: line
+          required: false
+          type: string
+          items:
+            type: string
+      responses:
+        '200':
+          description: Ok
+          schema:
+            type: string
+      description: ''
+  /arriveAt:
+    post:
+      operationId: arr
+      produces:
+        - application/json
+      parameters:
+        - name: dest
+          in: query
+          description: dest
+          required: false
+          type: string
+          items:
+            type: string
+        - name: line
+          in: query
+          description: line
+          required: false
+          type: string
+          items:
+            type: string
+      responses:
+        '200':
+          description: Ok
+          schema:
+            type: string
+      description: ''
+  /station/using/entry:
+    get:
+      operationId: getE
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Ok
+          schema:
+            type: string
+      description: ''
+  /station/using/dest:
+    get:
+      operationId: getD
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Ok
+          schema:
+            type: string
+      description: ''
+  /station/find/entry:
+    get:
+      operationId: getUE
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Ok
+          schema:
+            type: string
+      description: ''
+  /station/find/dest:
+    get:
+      operationId: getUD
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Ok
+          schema:
+            type: string
+      description: ''
+produces:
+  - application/json
+swagger: '2.0'
+securityDefinitions: {}
+host: talui-ku-server.herokuapp.com
