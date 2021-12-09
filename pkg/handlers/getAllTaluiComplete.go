@@ -7,16 +7,14 @@ import (
 	"talui/pkg/database/dbmodels"
 )
 
-// ShowAllTaluiComplete godoc
-// @Summary Show all TaluiComplete
-// @Description get all Talui
-// @Accept  json
-// @Produce  json
-// @Success 200 {object} json
-// @Failure 400 {object} HTTPError
-// @Failure 404 {object} HTTPError
-// @Failure 500 {object} HTTPError
-// @Router //complete/GetAllTalui [get]
+// GetAllTaluiComplete godoc
+// @Summary      Show show all TaluiComplete
+// @Description  get all TaluiComplete
+// @Tags         TaluiComplete
+// @Accept       json
+// @Produce      json
+// @Success      200  {object}  string
+// @Router       /complete/GetAllTalui [get]
 func GetAllTaluiCompleteHandler(c *fiber.Ctx) error {
 	fmt.Println("/complete/GetAllTalui")
 	

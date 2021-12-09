@@ -17,15 +17,44 @@ var doc = `{
     "info": {
         "description": "{{escape .Description}}",
         "title": "{{.Title}}",
+        "termsOfService": "http://swagger.io/terms/",
         "contact": {
-            "name": "API Support",
-            "email": "youremail@provider.com"
+            "name": "puvana swatavnith",
+            "email": "puvana.s@ku.th"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
         },
         "version": "{{.Version}}"
     },
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
-    "paths": {}
+    "paths": {
+        "/complete/GetAllTalui": {
+            "get": {
+                "description": "get all TaluiComplete",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "TaluiComplete"
+                ],
+                "summary": "Show show all TaluiComplete",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    }
 }`
 
 type swaggerInfo struct {
@@ -40,10 +69,10 @@ type swaggerInfo struct {
 // SwaggerInfo holds exported Swagger Info so clients can modify it
 var SwaggerInfo = swaggerInfo{
 	Version:     "1.0",
-	Host:        "localhost:3000",
+	Host:        "talui-ku-server.herokuapp.com/",
 	BasePath:    "/",
 	Schemes:     []string{},
-	Title:       "Fiber Example API",
+	Title:       "Talui Api docs",
 	Description: "This is a sample swagger for Fiber",
 }
 

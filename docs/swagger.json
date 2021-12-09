@@ -1,15 +1,261 @@
 {
-    "swagger": "2.0",
-    "info": {
-        "description": "This is a sample swagger for Fiber",
-        "title": "Fiber Example API",
-        "contact": {
-            "name": "API Support",
-            "email": "youremail@provider.com"
-        },
-        "version": "1.0"
-    },
-    "host": "localhost:3000",
     "basePath": "/",
-    "paths": {}
+    "swagger": "2.0",
+    "securityDefinitions": {},
+    "host": "talui-ku-server.herokuapp.com",
+    "consumes": [
+      "application/json"
+    ],
+    "definitions": {},
+    "info": {
+      "license": {
+        "name": "ISC"
+      },
+      "title": "TaluiKU Api docs",
+      "version": "0.1.0"
+    },
+    "paths": {
+      "/complete/getAllTalui":{
+        "get": {
+          "operationId": "completeAlle",
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "Ok",
+              "schema": {
+                "type": "string"
+              }
+            }
+          },
+          "description": ""
+        }
+      },
+      "/on/getAllTalui": {
+        "get": {
+          "operationId": "onAll",
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "Ok",
+              "schema": {
+                "type": "string"
+              }
+            }
+          },
+          "description": ""
+        }
+      },
+      "/complete/insertTalui":{
+        "post": {
+          "operationId": "Insert Complete",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+          {
+            "name": "entry",
+            "in": "query",
+            "description": "entry",
+            "required": false,
+            "type": "string",
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "dest",
+            "in": "query",
+            "description": "dest",
+            "required": false,
+            "type": "string",
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "line",
+            "in": "query",
+            "description": "line",
+            "required": false,
+            "type": "string",
+            "items": {
+              "type": "string"
+            }
+          }
+        ],
+          "responses": {
+            "200": {
+              "description": "Ok",
+              "schema": {
+                "type": "string"
+              }
+            }
+          },
+          "description": ""
+        }
+      },
+      "/on/insertTalui":{
+        "post": {
+          "operationId": "InsertOn",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+          {
+            "name": "entry",
+            "in": "query",
+            "description": "entry",
+            "required": false,
+            "type": "string",
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "dest",
+            "in": "query",
+            "description": "dest",
+            "required": false,
+            "type": "string",
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "line",
+            "in": "query",
+            "description": "line",
+            "required": false,
+            "type": "string",
+            "items": {
+              "type": "string"
+            }
+          }
+        ],
+          "responses": {
+            "200": {
+              "description": "Ok",
+              "schema": {
+                "type": "string"
+              }
+            }
+          },
+          "description": ""
+        }
+      },
+      "/arriveAt":{
+        "post": {
+          "operationId": "arr",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+          {
+            "name": "dest",
+            "in": "query",
+            "description": "dest",
+            "required": false,
+            "type": "string",
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "line",
+            "in": "query",
+            "description": "line",
+            "required": false,
+            "type": "string",
+            "items": {
+              "type": "string"
+            }
+          }
+        ],
+          "responses": {
+            "200": {
+              "description": "Ok",
+              "schema": {
+                "type": "string"
+              }
+            }
+          },
+          "description": ""
+        }
+      },
+      "/station/using/entry":{
+        "get": {
+          "operationId": "getE",
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "Ok",
+              "schema": {
+                "type": "string"
+              }
+            }
+          },
+          "description": ""
+        }
+      },
+      "/station/using/dest":{
+        "get": {
+          "operationId": "getD",
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "Ok",
+              "schema": {
+                "type": "string"
+              }
+            }
+          },
+          "description": ""
+        }
+      },
+      "/station/find/entry":{
+        "get": {
+          "operationId": "getUE",
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "Ok",
+              "schema": {
+                "type": "string"
+              }
+            }
+          },
+          "description": ""
+        }
+      },
+      "/station/find/dest":{
+        "get": {
+          "operationId": "getUD",
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "Ok",
+              "schema": {
+                "type": "string"
+              }
+            }
+          },
+          "description": ""
+        }
+      }
+    },
+    "produces": [
+      "application/json"
+    ]
 }

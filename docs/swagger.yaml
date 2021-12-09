@@ -1,11 +1,30 @@
 basePath: /
-host: localhost:3000
+host: talui-ku-server.herokuapp.com/
 info:
   contact:
-    email: youremail@provider.com
-    name: API Support
+    email: puvana.s@ku.th
+    name: puvana swatavnith
   description: This is a sample swagger for Fiber
-  title: Fiber Example API
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: Talui Api docs
   version: "1.0"
-paths: {}
+paths:
+  /complete/GetAllTalui:
+    get:
+      consumes:
+      - application/json
+      description: get all TaluiComplete
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: Show show all TaluiComplete
+      tags:
+      - TaluiComplete
 swagger: "2.0"
