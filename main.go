@@ -23,23 +23,23 @@ import (
 
 func main() {
 	fiberApp := app.CreateFiberApp()
-	
+
 	_ = godotenv.Load(".env")
 	fiberApp.Use(cors.New())
 	fiberApp.Use(cors.New(cors.Config{
-	    AllowOrigins:     "*",
-	    AllowMethods:     "GET,POST,HEAD,PUT,DELETE,PATCH",
-	    AllowHeaders:     "",
+		AllowOrigins: "*",
+		AllowMethods: "GET,POST,HEAD,PUT,DELETE,PATCH",
+		AllowHeaders: "",
 	}))
-	
+
 	fiberApp.Get("/swagger/*", swagger.Handler) // default
-    
-    mysqlUri := os.Getenv("MYSQL_URI")
+
+	mysqlUri := os.Getenv("MYSQL_URI")
 	database.ConnectMySQL(mysqlUri)
 	// middleware.RegisDb(fiberApp, db)
 	route.SetupRouter(fiberApp)
-	
-	// port 
+
+	// port
 	port := os.Getenv("PORT")
 	fmt.Printf("starting server at port %s", port)
 	fiberApp.Listen(":" + port)

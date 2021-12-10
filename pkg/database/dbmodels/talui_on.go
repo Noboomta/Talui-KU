@@ -101,7 +101,7 @@ func UpdateTracker(curr string, next string, line string) error {
 	db := database.DB
 
 	_ = "INSERT INTO talui_on (entry, dest, line) VALUES ( '" + curr + "', '" + next + "', '" + line + "' )"
-	query := fmt.Sprintf("UPDATE talui_tracker SET current=%s, next=%s WHERE line=%s", curr, next, line)
+	query := fmt.Sprintf("UPDATE `talui_tracker` SET current='%s', next='%s' WHERE line='%s'", curr, next, line)
 	update, err := db.Query(query)
 
 	if err != nil {
