@@ -16,25 +16,8 @@ func GetMainPage(c *fiber.Ctx) error {
 	// 	"/complete/insertTalui",
 	// 	"/arriveAt",
 	// }
-
-	myHtml := "<h3>GET /on/getAllTalui</h3>" +
-	"<br>" +
-	"<h3>POST /on/insertTalui</h3>" +
-	"<br>" +
-	"<h3>GET /complete/GetAllTalui</h3>" +
-	"<br>" +
-	"<h3>POST /complete/insertTalui</h3>" +
-	"<br>" +
-	"<h3>POST /arriveAt</h3>" +
-	"<br>" +
-	"<h3>GET /station/using/entry</h3>" +
-	"<br>" +
-	"<h3>GET /station/using/dest</h3>" +
-	"<br>" +
-	"<h3>GET /station/find/entry</h3>" +
-	"<br>" +
-	"<h3>GET /station/find/dest</h3>" +
-	"<br>"
+	api_docs := "https://talui-ku-server.herokuapp.com/swagger/index.html"
+	myHtml := fmt.Sprintf("<a href='%s'>api-docs</a>", api_docs)
 	
 	c.Set(fiber.HeaderContentType, fiber.MIMETextHTML)
     return c.SendString(myHtml)
