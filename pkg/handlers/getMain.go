@@ -17,7 +17,7 @@ func GetMainPage(c *fiber.Ctx) error {
 	// 	"/arriveAt",
 	// }
 	api_docs := "https://talui-ku-server.herokuapp.com/swagger/index.html"
-	myHtml := fmt.Sprintf("<a href='%s'>api-docs</a>", api_docs)
+	myHtml := fmt.Sprintf("<p>Check out our Swagger api here!</p><br><a href='%s'>api-docs</a>", api_docs)
 	
 	c.Set(fiber.HeaderContentType, fiber.MIMETextHTML)
     return c.SendString(myHtml)
