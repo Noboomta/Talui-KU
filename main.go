@@ -40,7 +40,7 @@ func main() {
 	route.SetupRouter(fiberApp)
 	
 	// port 
-	port := os.Getenv("SERVER_PORT")
+	port := os.Getenv("PORT")
 	fmt.Printf("starting server at port %s", port)
 	fiberApp.Listen(":" + port)
 }
