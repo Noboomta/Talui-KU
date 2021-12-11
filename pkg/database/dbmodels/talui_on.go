@@ -16,6 +16,12 @@ type TaluiOn struct {
 	Line     string `json:"line"`
 }
 
+type TaluiTracker struct {
+	Line    string `json:"line"`
+	Current string `json:"current"`
+	Next    string `json:"next"`
+}
+
 func GetAllTaluiOn() ([]TaluiOn, error) {
 	db := database.DB
 	result, err := db.Query("SELECT * FROM `talui_on`")
@@ -112,4 +118,23 @@ func UpdateTracker(curr string, next string, line string) error {
 
 	defer update.Close()
 	return nil
+}
+
+func GetTaluiTracker() ([]TaluiTracker, error) {
+	db := database.DB
+	result, err := db.Query("SELECT * FROM `talui_tracker`")
+	if err != nil {
+		fmt.Println(err)
+		return nil, err
+	}
+	defer result.Close()
+
+	dataArray := []TaluiTracker{}
+	for result.Next() {
+		var data TaluiTracker
+		result.Scan(&data.Line, &data.Current, &data.Next)
+		dataArray = append(dataArray, data)
+	}
+
+	return dataArray, nil
 }
