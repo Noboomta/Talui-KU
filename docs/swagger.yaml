@@ -112,6 +112,13 @@ paths:
           type: string
           items:
             type: string
+        - name: next
+          in: query
+          description: next
+          required: false
+          type: string
+          items:
+            type: string
         - name: line
           in: query
           description: line
