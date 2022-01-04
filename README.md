@@ -2,7 +2,7 @@
 
 DAQ 2021 SKE17 DEC
 
-swagger ui docs: [talui api-docs](https://talui-ku-server.herokuapp.com//swagger/index.html)
+swagger ui docs: [talui api-docs](https://talui-ku-server.herokuapp.com/swagger/index.html)
 
 ## Docs
 
