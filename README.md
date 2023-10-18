@@ -6,7 +6,7 @@ swagger ui docs: [talui api-docs](https://talui-ku-server.herokuapp.com/swagger/
 
 ## Web page
 
-[taluiKU web](talui-ku-client.vercel.app)
+[Talui KU](https://talui-ku-client.vercel.app/)
 
 ## Docs
 
